@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, responsiveFontSizes } from '@material-ui/core/styles';
 import {colors} from '../helpers/theme';
 
 const useStyles = makeStyles (theme => ({
@@ -7,7 +7,8 @@ const useStyles = makeStyles (theme => ({
     // background: ,
     borderBottom: `2px solid ${colors.headerBorder}`,
     height: 40,
-    fontWeight: 20
+    fontWeight: 20,
+    fontSize: 20,
   },
 }));
 
