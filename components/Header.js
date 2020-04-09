@@ -7,6 +7,7 @@ const useStyles = makeStyles (theme => ({
     // background: ,
     borderBottom: `2px solid ${colors.headerBorder}`,
     height: 40,
+    fontWeight: 20
   },
 }));
 
