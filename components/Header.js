@@ -5,7 +5,7 @@ import {colors} from '../helpers/theme';
 const useStyles = makeStyles (theme => ({
   root: {
     // background: ,
-    borderBottom: `1px solid ${colors.headerBorder}`,
+    borderBottom: `2px solid ${colors.headerBorder}`,
     height: 40,
   },
 }));
