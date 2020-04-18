@@ -1,4 +1,4 @@
 export const colors = {
-  headerBorder: 'blue',
+  headerBorder: 'rgb(0, 0, 255, 0.95)',
   
 }
