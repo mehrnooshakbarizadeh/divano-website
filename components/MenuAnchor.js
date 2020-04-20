@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Link from 'next/link';
 
 const useStyles = makeStyles (theme => ({
   menu : {
@@ -40,7 +41,11 @@ const useStyles = makeStyles (theme => ({
 
 export default function MenuAnchor({href, children}) {
   const classes = useStyles();
-  return <a href={href} className={classes.menu}>
+  return (
+  <Link href={href}>
+    <a className={classes.menu}>
     {children}
-  </a>;
-}
+    </a>
+  </Link>
+  
+  )}

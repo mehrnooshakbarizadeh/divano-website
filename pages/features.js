@@ -38,7 +38,7 @@ const Home = () => {
         <CssBaseline />
         <Header scrolled={scrolled} onChangeRtl={()=> setRtl(!rtl)}/>
         <FirstRow/>
-        <Slogan />
+        Features2
       </MuiThemeProvider>
     </Direction>
 )}

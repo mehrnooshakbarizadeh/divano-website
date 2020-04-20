@@ -4,6 +4,8 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import {colors} from '../helpers/theme';
 import MenuAnchor from './MenuAnchor'
+import Link from 'next/link';
+
 
 const useStyles = makeStyles (theme => ({
   root: {
@@ -53,15 +55,20 @@ export default function Header({scrolled, onChangeRtl}) {
   const classes = useStyles();
 
   return <div className={classes.root + (!scrolled ? '' : ' ' + classes.scrolled)}>
-    <MenuAnchor href="/features"><b>Features</b></MenuAnchor>
-    <MenuAnchor href="/features"><b>Mitears</b></MenuAnchor>
-    <MenuAnchor href="/features"><b>pitears</b></MenuAnchor>
+    
+        <MenuAnchor href="/features"><b>Features</b></MenuAnchor>
+        <MenuAnchor href="/features"><b>Mitears</b></MenuAnchor>
+        <MenuAnchor href="/features"><b>pitears</b></MenuAnchor>
+    
+    
     <div className={classes.spacer} onClick={onChangeRtl}>
       
     </div>
-
+  
     <div>
-      <a href="#" className={classes.logo}>logo</a>  
+      <Link href="/">
+        <a className={classes.logo}>logo</a>  
+      </Link> 
     </div>
   </div>;
   
