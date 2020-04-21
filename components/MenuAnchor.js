@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from 'next/link';
 
+
+
 const useStyles = makeStyles (theme => ({
   menu : {
     position: 'relative',
@@ -15,7 +17,7 @@ const useStyles = makeStyles (theme => ({
     verticalAlign: 'middle',
     textDecoration: 'none',
     height: 30,
-    color: 'green',
+    color: 'blue',
     '&:hover': {
       '&:after': {
         transform: 'translateX(0%)',

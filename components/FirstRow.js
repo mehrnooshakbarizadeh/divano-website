@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop:'80px',
     backgroundImage: 'linear-gradient(-90deg,white,blue)',
     paddingLeft: '255px',
-    position: 'relative',
+    //position: 'relative',
   },
   mainParag: {
     fontSize: '20px',
