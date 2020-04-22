@@ -5,8 +5,6 @@ import { StylesProvider, jssPreset} from '@material-ui/core/styles';
 
 const jss = create({plugins: [...jssPreset().plugins, rtl()]});
 
-// const generateClassName = createGenerateClassName();
-
 export default props => {
   if(!props.rtl){
     return <>
