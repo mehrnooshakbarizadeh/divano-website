@@ -3,7 +3,12 @@ import {
   Paper,
 } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
-import imgSlogan from '../images/sloganIcon.svg';
+import ImgSlogan from '../images/sloganIcon.svg';
+import SloganSec from '../images/sloganSec.svg';
+import SloganThi from '../images/sloganThi.svg';
+import SloganFou from '../images/sloganFo.svg';
+import SloganFif from '../images/sloganFif.svg';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,9 +29,11 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   imgSlogan:{
-    background:'red',
-    position:'absolute'
+    float:'left',
+    marginTop:'10px',
+    marginRight:'50px',
   },
+  
 
 }));
 
@@ -39,7 +46,12 @@ export default function Slogan() {
       <p className={classes.sloganFirst}>Here is just for showing Divano Slogan.</p>
       <p className={classes.sloganSec}>Here is just for showing Divano Slogan.</p>
       <div>
-      <imgSlogan className={classes.imgSlogan} /> 
+      <ImgSlogan className={classes.imgSlogan} /> 
+      <SloganSec className={classes.imgSlogan}/>
+      <SloganThi className={classes.imgSlogan}/>
+      <SloganFou className={classes.imgSlogan} />
+      <SloganFif className={classes.imgSlogan} />
+
       </div>
   </Paper>
   )

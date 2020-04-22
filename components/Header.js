@@ -7,6 +7,7 @@ import MenuAnchor from './MenuAnchor'
 import Link from 'next/link';
 
 
+
 const useStyles = makeStyles (theme => ({
   root: {
     position: 'fixed',
@@ -47,7 +48,7 @@ const useStyles = makeStyles (theme => ({
   logo: {
     height:30,
     width: 30,
-    float: 'left',
+    // float: 'left',
   },
 }));
 
@@ -67,9 +68,11 @@ export default function Header({scrolled, onChangeRtl}) {
   
     <div>
       <Link href="/">
-        <a className={classes.logo}>logo</a>  
+        <a>
+         <img src="/static/images/logo.png" alt="logo" className={classes.logo}/>
+        </a>  
       </Link> 
     </div>
-  </div>;
+  </div>
   
-}
+};
