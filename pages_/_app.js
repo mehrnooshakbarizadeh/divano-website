@@ -9,9 +9,9 @@ import createTheme from '../src/theme';
 import Direction from '../components/Direction';
 
 export default function DivanoApp(props) {
-  const { Component, pageProps } = props;
+  const { Component, pageProps, router } = props;
 
-  const rtl = false;
+  const rtl = !isRouteLtr(router.route);
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -22,9 +22,8 @@ export default function DivanoApp(props) {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Head>
-        <title>Divano - Accounting application</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <Direction rtl={rtl}>
@@ -34,7 +33,7 @@ export default function DivanoApp(props) {
           <Component {...pageProps} />
         </MuiThemeProvider>
       </Direction>
-    </React.Fragment>
+    </>
   );
 }
 
@@ -42,3 +41,9 @@ DivanoApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.object.isRequired,
 };
+
+function isRouteLtr(route) {
+  if(route && (route==='/en' || route.startsWith('/en/')))
+    return true;
+  return false;
+}

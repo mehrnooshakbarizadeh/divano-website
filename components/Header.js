@@ -4,9 +4,13 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import {colors} from '../helpers/theme';
 import MenuAnchor from './MenuAnchor'
-import Link from 'next/link';
+import { useRouter } from 'next/router'
+// import Link from 'next/link';
+import Link from 'next-translate/Link';
+import useTranslation from 'next-translate/useTranslation';
+import i18nConfig from '../i18n.json';
 
-
+const { allLanguages } = i18nConfig;
 
 const useStyles = makeStyles (theme => ({
   root: {
@@ -52,18 +56,30 @@ const useStyles = makeStyles (theme => ({
   },
 }));
 
-export default function Header({scrolled, onChangeRtl}) {
+export default function Header({scrolled, ...rest}) {
+  const router = useRouter();
   const classes = useStyles();
+  const { t, lang } = useTranslation();
+
+  React.useEffect(()=>{
+    if(document){
+      document.title = t('common:title');
+    }
+  }, [t]);
+
 
   return <div className={classes.root + (!scrolled ? '' : ' ' + classes.scrolled)}>
     
-        <MenuAnchor href="/features"><b>Features</b></MenuAnchor>
-        <MenuAnchor href="/features"><b>Mitears</b></MenuAnchor>
-        <MenuAnchor href="/features"><b>pitears</b></MenuAnchor>
+    <MenuAnchor href="/features"><b>{t('common:features')}</b></MenuAnchor>
+    <MenuAnchor href="/features"><b>Mitears</b></MenuAnchor>
+    <MenuAnchor href="/features"><b>pitears</b></MenuAnchor>
     
-    
-    <div className={classes.spacer} onClick={onChangeRtl}>
-      
+    <div className={classes.spacer}>
+      {allLanguages.filter(l => l!==lang).map( l => (
+        <Link key={l} href={stripLang(router.route, lang)} lang={l}>
+          <a>{l}</a>
+        </Link> 
+      ))}
     </div>
   
     <div>
@@ -76,3 +92,9 @@ export default function Header({scrolled, onChangeRtl}) {
   </div>
   
 };
+
+function stripLang(route, lang){
+  if(route === `/${lang}`) return '/';
+  if(route.startsWith(`/${lang}`)) return route.substring(lang.length + 1);
+  return route;
+}
