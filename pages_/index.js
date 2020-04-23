@@ -1,32 +1,20 @@
 import React from 'react'
-// import Direction from '../components/Direction';
 import Header from '../components/Header';
 import Slogan from '../components/Slogan';
 import FirstRow from '../components/FirstRow';
+import useTranslation from 'next-translate/useTranslation';
 
 const Home = () => {
-  const [scrolled, setScrolled] = React.useState(false);
+  const { t } = useTranslation();
 
-  const handleScroll = ()=>{
-    console.log(window.scrollY)
-    if(!scrolled && window.scrollY > 5) {
-      setScrolled(true);
-    }
-    if(scrolled && window.scrollY < 5) {
-      setScrolled(false);
-    }
-  }
-
-  React.useEffect(()=>{
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  })
-  
   return (
     <>
-      <Header scrolled={scrolled}/>
+      <Header/>
       <FirstRow/>
       <Slogan />
+      <p>
+        {t('home:content')}
+      </p>
     </>
 )}
 

@@ -1,20 +1,22 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
+import { 
+  makeStyles,
+  Typography,
+ } from '@material-ui/core';
 import {colors} from '../helpers/theme';
 import MenuAnchor from './MenuAnchor'
 import { useRouter } from 'next/router'
-// import Link from 'next/link';
 import Link from 'next-translate/Link';
 import useTranslation from 'next-translate/useTranslation';
 import i18nConfig from '../i18n.json';
+import Logo from '../images/logo.svg';
 
 const { allLanguages } = i18nConfig;
 
 const useStyles = makeStyles (theme => ({
   root: {
     position: 'fixed',
+    zIndex: 1,
     display: 'flex',
     fallbacks: [
       { display: '-webkit-box' },
@@ -22,7 +24,8 @@ const useStyles = makeStyles (theme => ({
       { display: '-ms-flexbox' },
       { display: '-webkit-flex' }
     ],
-    height: 40,
+    alignItems: 'center',
+    height: 64,
     width: '100%',
     '&:after': {
       position: 'absolute',
@@ -38,6 +41,7 @@ const useStyles = makeStyles (theme => ({
       // transform: 'translateX(-110%)',
       transition: 'background-color 0.2s cubic-bezier(0.455,0.03,0.515,0.955)',
     },
+    backgroundColor: '#fff',
   },
 
   spacer: {
@@ -50,16 +54,56 @@ const useStyles = makeStyles (theme => ({
     }
   },
   logo: {
-    height:30,
-    width: 30,
+    height: 64,
+    width: 64,
+    padding: 8,
     // float: 'left',
+  },
+  currentLang:{
+    margin: '0 8px',
+    padding: '5px',
+    overflow: 'hidden',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+    textDecoration: 'none',
+    height: 30,
+    color: 'black',
+  },
+  lang:{
+    display: 'block',
+    // width: 100,
+    margin: '0 8px',
+    padding: '5px',
+    overflow: 'hidden',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+    textDecoration: 'none',
+    height: 30,
+    color: 'blue',
   },
 }));
 
-export default function Header({scrolled, ...rest}) {
+export default function Header({}) {
   const router = useRouter();
   const classes = useStyles();
   const { t, lang } = useTranslation();
+
+  const [scrolled, setScrolled] = React.useState(false);
+
+  const handleScroll = ()=>{
+    // console.log(window.scrollY)
+    if(!scrolled && window.scrollY > 5) {
+      setScrolled(true);
+    }
+    if(scrolled && window.scrollY < 5) {
+      setScrolled(false);
+    }
+  }
+
+  React.useEffect(()=>{
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  })
 
   React.useEffect(()=>{
     if(document){
@@ -74,18 +118,21 @@ export default function Header({scrolled, ...rest}) {
     <MenuAnchor href="/features"><b>Mitears</b></MenuAnchor>
     <MenuAnchor href="/features"><b>pitears</b></MenuAnchor>
     
-    <div className={classes.spacer}>
-      {allLanguages.filter(l => l!==lang).map( l => (
+    <div className={classes.spacer}/>
+    {allLanguages.map( l => {
+      if(l===lang){
+        return <div key={l} className={classes.currentLang}><Typography>{t(`common:${l}`)}</Typography></div>
+      }
+      return (
         <Link key={l} href={stripLang(router.route, lang)} lang={l}>
-          <a>{l}</a>
+          <a className={classes.lang}><Typography>{t(`common:${l}`)}</Typography></a>
         </Link> 
-      ))}
-    </div>
+    )})}
   
     <div>
       <Link href="/">
         <a>
-         <img src="/static/images/logo.png" alt="logo" className={classes.logo}/>
+         <Logo className={classes.logo}/>
         </a>  
       </Link> 
     </div>

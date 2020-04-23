@@ -1,0 +1,15 @@
+<svg viewBox="0 0 640 480" overflow="hidden" xmlns="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g>
+		<path d="
+      M150,70 L300,70 L300,70 C390,70 450,135 450,220 C450,300 390,370 300,370 L150,370 z
+      M210,130 L293,130 L293,130 C340,130 380,160 380,210 C380,260 350,300 290,300 L210,300 z
+      " stroke-dasharray="none" fill-opacity="1" fill="#1a3765" fill-rule="evenodd">
+		</path>
+		<path d="M150,170 L150,370 L190,370 L190,170 z" stroke-dasharray="none" fill-opacity="1" fill="#ffff00" style="vector-effect: non-scaling-stroke;">
+		</path>
+		<path d="M190,230 L190,370 L230,370 L230,230 z" stroke-dasharray="none" fill-opacity="1" fill="#00bf5f" style="vector-effect: non-scaling-stroke;">
+		</path>
+		<path d="M230,290 L230,370 L270,370 L270,290 z" stroke-dasharray="none" fill-opacity="1" fill="#af0f0f" style="vector-effect: non-scaling-stroke;">
+		</path>
+	</g>
+</svg>

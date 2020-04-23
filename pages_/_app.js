@@ -45,5 +45,7 @@ DivanoApp.propTypes = {
 function isRouteLtr(route) {
   if(route && (route==='/en' || route.startsWith('/en/')))
     return true;
-  return false;
+  // else if(route && (route==='/es' || route.startsWith('/es/')))
+  //   return true;
+  else return false;
 }
