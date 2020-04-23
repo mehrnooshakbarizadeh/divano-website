@@ -11,7 +11,8 @@ import Link from 'next/link';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: 500,
-    paddingTop: 60,
+    //paddingTop: 60,
+    paddingTop: '4.6875rem',
     paddingLeft: 10,
     // flip: false,
   },
@@ -22,14 +23,15 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '255px',
     //position: 'relative',
   },
-  mainParag: {
-    fontSize: '20px',
-    color: 'white',
-  },
   mainImg:{
     position: 'absolute',
     right: 0,
     transform: `scaleX(${theme.direction==='rtl'?'-1':'1'})`,
+  },
+  firstRowBtm: {
+    position:'absolute',
+    paddingTop:'10px',
+    
   },
 }));
 
@@ -40,7 +42,7 @@ export default function FirstRow() {
     <div className={classes.content}>
      
         <MainImg height="280px" className={classes.mainImg}/>
-        <Button variant="contained">Divano</Button>
+        <Button variant="contained" className={classes.firstRowBtm}>Divano</Button>
       
 
       
