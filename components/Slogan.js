@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 16,
     margin: '-64px 48px 0 48px',
     [theme.breakpoints.down('xs')]: {
-      margin: '-50px 8px 0 8px',
+      margin: '-16px 8px 0 8px',
     },
   },
   sloganFirst:{
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imgSlogan:{
     marginTop:'10px',
-    marginRight:'50px',
+    marginRight:'30px',
   },
   
 
@@ -57,19 +57,19 @@ export default function Slogan() {
           <Grid item xs={12}>
             <p className={classes.sloganSec}>{t('home:slogan.content')}</p>
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3} container justify="center" alignItems="center">
+          <Grid item xs={12} sm={6} md={4} lg={2} container justify="center" alignItems="center">
             <ImgSlogan className={classes.imgSlogan} /> 
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3} container justify="center" alignItems="center">
+          <Grid item xs={12} sm={6} md={4} lg={2} container justify="center" alignItems="center">
             <SloganSec className={classes.imgSlogan}/>
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3} container justify="center" alignItems="center">
+          <Grid item xs={12} sm={6} md={4} lg={2} container justify="center" alignItems="center">
             <SloganThi className={classes.imgSlogan}/>
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3} container justify="center" alignItems="center">
+          <Grid item xs={12} sm={6} md={4} lg={2} container justify="center" alignItems="center">
             <SloganFou className={classes.imgSlogan} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3} container justify="center" alignItems="center">
+          <Grid item xs={12} sm={6} md={4} lg={2} container justify="center" alignItems="center">
             <SloganFif className={classes.imgSlogan} />
           </Grid>
         </Grid>

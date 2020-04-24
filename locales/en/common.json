@@ -2,5 +2,9 @@
   "title": "Divano - Accounting application",
   "fa": "فارسی",
   "en": "english",
-  "features": "features"
+  "features": "features",
+  "meatures": "meatures",
+  "peatures": "peatures",
+  "divanoAppLink": "Go to Application",
+  "appText": "Start accounting right now!"
 }
