@@ -9,7 +9,6 @@ const Features = () => {
   return (
     <>
       <Header/>
-      <FirstRow/>
       <p>
         {t('features:content')}
       </p>

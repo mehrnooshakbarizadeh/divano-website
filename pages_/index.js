@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Slogan from '../components/Slogan';
 import FirstRow from '../components/FirstRow';
 import useTranslation from 'next-translate/useTranslation';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ const Home = () => {
       <p>
         {t('home:content')}
       </p>
+      <Footer />
     </>
 )}
 

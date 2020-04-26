@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     // margin: '-50px auto 0 auto',
     padding: 16,
     margin: '-64px 48px 0 48px',
+    borderRadius: 15,
     [theme.breakpoints.down('xs')]: {
       margin: '-16px 8px 0 8px',
     },
