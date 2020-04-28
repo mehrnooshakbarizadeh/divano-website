@@ -76,6 +76,7 @@ export default function FirstRow() {
           <Link
             href="https://app.divano.ir"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Button className={classes.firstRowBtm}>
               {t('common:divanoAppLink')}

@@ -7,6 +7,8 @@
   "pages": {
     "*": ["common"],
     "/": ["home"],
-    "/features": ["features"]
+    "/features": ["features"],
+    "/meatures": ["features"],
+    "/peatures": ["features"]
   }
 }

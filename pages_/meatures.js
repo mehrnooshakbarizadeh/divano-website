@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import useTranslation from 'next-translate/useTranslation';
 
-const Features = () => {
+const Meatures = () => {
   const { t } = useTranslation();
   
   return (
@@ -16,4 +16,4 @@ const Features = () => {
     </>
 )}
 
-export default Features
+export default Meatures

@@ -1,29 +1,31 @@
 import {
   makeStyles,
   Grid,
-  Container,
-  Link,
+  List,
+  ListItem,
+  ListItemText,
   Button,
   Typography,
 } from '@material-ui/core';
 import { colors } from '../helpers/theme';
 import useTranslation from 'next-translate/useTranslation';
+import Link from 'next-translate/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    // position: 'absolute',
+    padding:'70px 70px',
     backgroundImage: 
       `linear-gradient(
           ${theme.direction === 'rtl' ? '':'-'}${theme.breakpoints.down('xs') ? '25':'90'}deg,
           blue,
           white
       )`,
-   height: 300,
-   paddingTop:6,
   },
   firstCol: {
     fontWeight: 'bold',
     color: 'darkBlue',
-    marginLeft: 6,
+    // marginLeft: 6,
     paddingTop: 10,
   },
   forthCol: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   DlAppBtn: {
     textTransform: 'unset',
-    marginLeft: '15vh',
+    // marginLeft: '15vh',
     color: colors.brightTextColor,
     backgroundColor: colors.actionColor,
     borderColor: colors.actionColor,
@@ -49,13 +51,21 @@ appText: {
   
 },
 appContainer: {
-  paddingLeft: 64,
-  paddingBottom: 145,
-  marginTop: 'auto',
-  [theme.breakpoints.down('xs')]: {
-    paddingTop: 24,
-    paddingLeft: 8,
-  },
+  // paddingLeft: 64,
+  // paddingBottom: 45,
+  // marginTop: 'auto',
+  // [theme.breakpoints.down('xs')]: {
+    // paddingTop: 24,
+    // paddingLeft: 8,
+  // },
+},
+fooProdLs: {
+  // position: 'absolute',
+  paddingTop: 30,
+  fontSize: 20,
+  '& li':{
+    padding: 0,
+  }
 },
   
 }));
@@ -63,22 +73,51 @@ appContainer: {
 export default function Footer() {
   const classes = useStyles();
   const {t} = useTranslation() ;
-
+  
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12} sm={3} container>
-          <Link href='#'>
-              <a  className={classes.firstCol}>first Col</a>
-          </Link>
+      <Grid item xs={12} sm={3} container direction="column">
+        <Link href='#'>
+          <a  className={classes.firstCol} > 
+            {t('common:Products')}
+          </a>
+        </Link>
+        <List className={classes.fooProdLs}>
+          <ListItem>
+            <Link href='/features'>
+              <a>
+                <ListItemText primary={t('common:features')} />                 
+              </a>
+            </Link>
+          </ListItem>  
+          <ListItem>
+            <Link href='/meatures'>
+              <a>
+                <ListItemText primary={t('common:meatures')} />                 
+              </a>
+            </Link>
+          </ListItem> 
+          <ListItem>
+            <Link href='/peatures'>
+              <a>
+                <ListItemText primary={t('common:peatures')} />
+              </a>
+            </Link>
+          </ListItem> 
+        </List>            
       </Grid>
       <Grid item xs={12} sm={3} container >    
           <Link href='#'>
-              <a  className={classes.firstCol}>Second Col</a>
+              <a  className={classes.firstCol} > 
+                {t('common:Enterprise')}
+              </a>
           </Link>
       </Grid>
       <Grid item xs={12} sm={3} container>
           <Link href='#'>
-           <a  className={classes.firstCol}>third Col</a>
+           <a  className={classes.firstCol}>
+            {t('common:Support')}
+           </a>
           </Link> 
       </Grid>
       <Grid item xs={12} sm={3} container >
@@ -86,14 +125,11 @@ export default function Footer() {
           <Typography variant="h6" className={classes.appText}>
             {t('common:appText')}
           </Typography>
-          <Link
-            href="https://app.divano.ir"
-            target="_blank"
-          >
+          <a href="https://app.divano.ir" target="_blank" rel="noopener noreferrer">
             <Button className={classes.DlAppBtn}>
               {t('common:divanoAppLink')}
             </Button>
-          </Link>
+          </a>
         </div>
       </Grid>
     </Grid>
