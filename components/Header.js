@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { 
   makeStyles,
   Typography,
@@ -20,6 +20,7 @@ import i18nConfig from '../i18n.json';
 import Logo from '../images/logo.svg';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
+import { DeviceContext } from '../helpers/device';
 
 const { allLanguages } = i18nConfig;
 
@@ -111,7 +112,8 @@ export default function Header({}) {
   const classes = useStyles();
   const { t } = useTranslation();
   const theme = useTheme();
-  const small = useMediaQuery(theme.breakpoints.down('xs'));
+  const {isMobileView} = useContext(DeviceContext);
+  const small = isMobileView || useMediaQuery(theme.breakpoints.down('xs'));
 
   const [scrolled, setScrolled] = React.useState(false);
 
