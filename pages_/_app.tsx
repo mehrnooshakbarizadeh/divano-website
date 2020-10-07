@@ -8,8 +8,9 @@ import {
 import createTheme from '../src/theme';
 import Direction from '../components/Direction';
 import { DeviceContext } from '../helpers/device';
+import { AppProps, AppContext } from 'next/app';
 
-export default function DivanoApp(props) {
+export default function App(props: (AppProps & {isMobileView: boolean})) {
   const { Component, pageProps, router, isMobileView } = props;
   const rtl = !isRouteLtr(router.route);
 
@@ -17,7 +18,7 @@ export default function DivanoApp(props) {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles.parentElement?.removeChild(jssStyles);
     }
   }, []);
 
@@ -39,24 +40,23 @@ export default function DivanoApp(props) {
   );
 }
 
-DivanoApp.propTypes = {
+App.propTypes = {
   Component: PropTypes.elementType.isRequired,
   // pageProps: PropTypes.object.isRequired,
 };
 
-DivanoApp.getInitialProps = ({ ctx }) => {
-  const isMobileView = (ctx.req
-    ? ctx.req.headers['user-agent']
-    : navigator.userAgent).match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-    );
+App.getInitialProps = ({ ctx }: AppContext) => {
+  const agent = ctx.req?.headers['user-agent'] || navigator.userAgent;
+  const isMobileView = agent.match(
+    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+  );
 
-    return {
-      isMobileView: Boolean(isMobileView)
-    }
+  return {
+    isMobileView: Boolean(isMobileView)
+  }
 }
 
-function isRouteLtr(route) {
+function isRouteLtr(route: string) {
   if(route && (route==='/en' || route.startsWith('/en/')))
     return true;
   // else if(route && (route==='/es' || route.startsWith('/es/')))

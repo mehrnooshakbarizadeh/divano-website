@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
+import {
   makeStyles,
 } from '@material-ui/core';
 import Link from 'next-translate/Link'
 
 
-const useStyles = makeStyles (theme => ({
-  menu : {
+const useStyles = makeStyles(theme => ({
+  menu: {
     position: 'relative',
     boxSizing: 'border-box',
     display: 'block',
@@ -39,16 +39,19 @@ const useStyles = makeStyles (theme => ({
       transform: 'translateX(-110%)',
       transition: 'transform 0.2s cubic-bezier(0.455,0.03,0.515,0.955)',
     },
-}
+  }
 }));
 
-export default function MenuAnchor({href, children}) {
+const MenuAnchor: React.FC<{href: string}> = ({ href, children }) => {
   const classes = useStyles();
   return (
-  <Link href={href}>
-    <a className={classes.menu}>
-    {children}
-    </a>
-  </Link>
-  
-  )}
+    <Link href={href}>
+      <a className={classes.menu}>
+        {children}
+      </a>
+    </Link>
+
+  )
+}
+
+export default MenuAnchor;

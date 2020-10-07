@@ -5,7 +5,7 @@ import { StylesProvider, jssPreset} from '@material-ui/core/styles';
 
 const jss = create({plugins: [...jssPreset().plugins, rtl()]});
 
-export default props => {
+const Direction: React.FC<{rtl: boolean}> = (props) => {
   if(!props.rtl){
     return <>
       {props.children}
@@ -21,3 +21,5 @@ export default props => {
     </div>
   )
 };
+
+export default Direction;

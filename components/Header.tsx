@@ -237,8 +237,8 @@ function HamberMenu({}) {
             {allLanguages.map( l => {
               if(l===lang){
                 return (
-                  <ListItem button key={l}>
-                    <ListItemText disabled primary={t(`common:${l}`)} />
+                  <ListItem disabled button key={l}>
+                    <ListItemText primary={t(`common:${l}`)} />
                   </ListItem>
                 )
               }
@@ -256,7 +256,7 @@ function HamberMenu({}) {
   );
 }
 
-function stripLang(route, lang){
+function stripLang(route: string, lang: string){
   if(route === `/${lang}`) return '/';
   if(route.startsWith(`/${lang}`)) return route.substring(lang.length + 1);
   return route;

@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 // import theme from '../src/theme';
 
-export default class DivanoDocument extends Document {
+export default class AppDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -24,7 +24,7 @@ export default class DivanoDocument extends Document {
   }
 }
 
-DivanoDocument.getInitialProps = async (ctx) => {
+AppDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
   // On the server:
